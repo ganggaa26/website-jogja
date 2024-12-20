@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+    <title>Bali</title>
+    <style>
+        .bg-changing {
+            background-size: cover;
+            background-position: center;
+            transition: background-image 0.5s ease-out;
+        }
+        .crop {
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        .crop img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+        }
+ 
+    </style>
+</head>
+<body>
+
+<!--nav start-->
+<nav class="fixed w-full shadow p-4 px-28 bg-white z-50">
+    <div class="flex justify-between items-center">
+        <div class="flex items-center w-80">
+            <!-- Container text dan logo -->
+            <div class="text-xl font-bold flex items-center space-x-2">
+                <span class="text-black">Indonesia</span>
+                <span class="text-blue-700 flex items-center">
+                    Menyala
+                    <!-- Logo -->
+                    <img src="img/logo.png" alt="Logo" class="w-8 h-8">
+                </span>
+            </div>
+        </div>
+        <div class="flex w-32 justify-between font-bold space-x-2">
+            <a href="home.html" class="text-gray-500 hover:text-blue-500 transition duration-200">Home</a>
+            <div class="relative">
+                <button class="text-gray-500 hover:text-blue-500 transition duration-200 focus:outline-none">
+                    Kategori
+                </button>
+                <div class="absolute hidden mt-2 w-48 bg-white shadow-lg rounded-lg ring-1 ring-black ring-opacity-5 group-hover:block">
+                    <a href="home.html#destinasi-wisata" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Destinasi</a>
+                    <a href="home.html#penginapan" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Penginapan</a>
+                    <a href="home.html#wahana" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Wahana</a>
+                </div>
+            </div>
+            <a href="galerry.html" class="text-gray-500 hover:text-blue-500 transition duration-200">Galerry</a>
+        </div>
+    </div>
+</nav>
+<script>
+    // Script untuk menampilkan dropdown menu saat klik pada tombol
+    document.querySelector('button').addEventListener('click', function() {
+        const dropdownContent = this.nextElementSibling;
+        dropdownContent.classList.toggle('hidden');
+    });
+</script>
+<!-- End Navbar -->
+
+<!-- Home Section -->
+<div id="homeSection" class="w-full h-screen bg-no-repeat bg-center bg-cover bg-fixed bg-scroll bg-changing" style="background-image: url('../img/home1.png');">
+    <div class="flex items-center justify-center min-h-screen px-28 py-24">
+        <div class="text-center">
+            <h1 class="text-7xl font-bold text-black">Bali Wonders</h1>
+            <h3 class="capitalize font-bold w-full mx-auto my-4 text-black whitespace-nowrap">Destinasi impian untuk liburan anda</h3>
+        </div>
+    </div>
+</div>
+<!-- End Home Section -->
+
+ 
+<!-- hero section -->
+<div class="px-6 py-5 md:px-28 md:py-10 flex flex-col md:flex-row items-center justify-between my-10">
+    <!-- Bagian Kiri -->
+    <div class="w-full md:w-2/5 mb-6 md:mb-0">
+        <h1 class="capitalize text-4xl md:text-6xl font-bold">Indonesia</h1>
+        <p class="text-base md:text-lg mt-4 leading-relaxed">
+            Indonesia adalah negara kepulauan terbesar di dunia yang terletak di Asia Tenggara dan Oseania. Negara ini terdiri dari lebih dari 17.000 pulau, termasuk lima pulau besar seperti Sumatra, Jawa, Kalimantan, Sulawesi, dan Papua. 
+            <br><br>
+            Indonesia dikenal sebagai negara dengan keanekaragaman budaya, suku, bahasa, dan agama. Dengan populasi lebih dari 270 juta jiwa, Indonesia adalah negara dengan jumlah penduduk terbanyak keempat di dunia. Ibu kota Indonesia adalah Jakarta, yang terletak di Pulau Jawa, pulau terpadat di negara ini.
+            <br><br>
+            Indonesia juga kaya akan sumber daya alam, memiliki keindahan alam yang luar biasa seperti pantai, gunung, dan hutan tropis. Selain itu, Indonesia memiliki sejarah yang kaya, mulai dari era kerajaan Hindu-Buddha, pengaruh Islam, hingga perjuangan kemerdekaan dari penjajahan kolonial.
+        </p>
+    </div>
+    <!-- Bagian Kanan -->
+    <div class="w-full md:w-2/5 flex justify-start">
+        <img src="img/logo.png" alt="Burung Garuda" class="w-full h-auto object-cover">
+    </div>
+</div>
+
+
+<!-- end hero section -->
+
+<script>
+    // Background image URLs
+    const backgroundImages = [
+        'img/foto1.jpg',
+        'img/foto5.jpg',
+        'img/foto3.png',
+        'img/foto4.jpg'
+    ];
+
+    let currentIndex = 0;
+    const homeSection = document.getElementById('homeSection');
+
+    // Fungsi untuk mengganti background image
+    function changeBackground() {
+        currentIndex = (currentIndex + 1) % backgroundImages.length;
+        homeSection.style.backgroundImage = url('${backgroundImages[currentIndex]}');
+        console.log(Background changed to: ${backgroundImages[currentIndex]});
+    }
+
+    // ganti background setiap 5 seconds (5000 milliseconds)
+    setInterval(changeBackground, 5000);
+</script>
+
+<!-- sejarah -->
+<section id="sejarah">
+    <div class="px-6 py-5 md:px-28 md:py-10 flex flex-col md:flex-row items-center justify-between my-10">
+        <div class="w-full md:w-2/5 mb-6 md:mb-0">
+            <img src="img/nusantara.jpg" alt="detail page" class="w-full h-auto object-cover">
+        </div>
+        <div class="w-full md:w-1/2">
+            <h1 class="capitalize text-3xl md:text-5xl font-bold my-2">
+                <span class="text-black-300">Nusantara</span>
+                <!-- <span class="text-red-500">Indonesia</span> -->
+            </h1><br>
+            <p class="text-base md:text-l"><br>Nusantara adalah istilah yang sering digunakan untuk merujuk pada wilayah kepulauan Indonesia. Kata ini berasal dari bahasa Sanskerta, yaitu "nusa" yang berarti pulau, dan "antara" yang berarti di antara atau hubungan.
+                 Dalam konteks sejarah dan budaya, Nusantara digunakan untuk menggambarkan wilayah maritim yang terdiri dari ribuan pulau yang terhubung oleh laut.
+
+                Dalam sejarah, istilah ini pertama kali dikenal melalui kitab Negarakertagama pada masa Kerajaan Majapahit (abad ke-14), di mana Nusantara merujuk pada konsep wilayah kekuasaan Majapahit yang mencakup sebagian besar Asia Tenggara maritim. 
+                Saat ini, Nusantara sering dianggap sebagai simbol kesatuan dan keberagaman budaya Indonesia.
+
+                <br> Pada tahun 2022, pemerintah Indonesia juga menggunakan istilah Nusantara sebagai nama untuk Ibu Kota Negara baru di Kalimantan Timur, yang dirancang sebagai pusat pemerintahan menggantikan Jakarta.
+                Nama ini dipilih untuk mencerminkan identitas nasional yang inklusif dan mencakup seluruh Indonesia.</p>
+            
+            </div>
+        </div>
+    </div>
+    </section>
+    <!-- End sejarah -->
+
+
+<section id="destinasi-wisata" class="max-w-screen-xxl mx-auto px-6 py-24 text-center" >
+    <h2 class="text-3xl font-semibold text-gray-800 mb-8">Indonesia – Samudra</h2>
+    <div class="rounded-xl overflow-hidden bg-gradient-to-br from-gray-200 to-gray-200">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+           
+ <!--pantai-->
+ <div class="bg-white rounded-lg overflow-hidden shadow-md flex flex-col justify-between">
+    <img src="img/logo.png" alt="Booking hotel" class="w-full h-48 object-cover transform transition duration-300 hover:scale-110">
+<div class="p-4 flex-1 flex flex-col justify-center items-center">
+    <h4 class="text-lg font-semibold mb-2">Pantai</h4>
+    <p class="text-gray-600 mb-2">Bali</p>
+        <a href="destinasi.html" class="bg-gray-800 text-white py-2 px-4 rounded-lg inline-block hover:bg-gray-700 transition duration-200">Lihat Selengkapnya</a>
+</div>
+</div>
+
+<!-- Cagar alam -->
+<div class="bg-white rounded-lg overflow-hidden shadow-md flex flex-col justify-between">
+    <img src="img/logo.png" alt="Booking hotel" class="w-full h-48 object-cover transform transition duration-300 hover:scale-110">
+<div class="p-4 flex-1 flex flex-col justify-center items-center">
+    <h4 class="text-lg font-semibold mb-2">Cagar Alam</h4>
+    <p class="text-gray-600 mb-2">Bali</p>
+    <a href="cagarAlam.html" class="bg-gray-800 text-white py-2 px-4 rounded-lg inline-block hover:bg-gray-700 transition duration-200">Lihat Selengkapnya</a>
+</div>
+</div>
+
+<!-- perswahan -->
+<div class="bg-white rounded-lg overflow-hidden shadow-md flex flex-col justify-between">
+    <img src="img/logo.png" alt="Booking hotel" class="w-full h-48 object-cover transform transition duration-300 hover:scale-110">
+<div class="p-4 flex-1 flex flex-col justify-center items-center">
+    <h4 class="text-lg font-semibold mb-2">persawahan</h4>
+    <p class="text-gray-600 mb-2">Bali</p>
+    <a href="persawahan.html" class="bg-gray-800 text-white py-2 px-4 rounded-lg inline-block hover:bg-gray-700 transition duration-200">Lihat Selengkapnya</a>
+</div>
+</div>
+
+
+ <!-- PURA -->
+    <div class="bg-white rounded-lg overflow-hidden shadow-md flex flex-col justify-between">
+        <img src="img/logo.png" alt="Booking hotel" class="w-full h-48 object-cover transform transition duration-300 hover:scale-110">
+    <div class="p-4 flex-1 flex flex-col justify-center items-center">
+        <h4 class="text-lg font-semibold mb-2">Pura</h4>
+        <p class="text-gray-600 mb-2">Bali</p>
+        <a href="pura.html" class="bg-gray-800 text-white py-2 px-4 rounded-lg inline-block hover:bg-gray-700 transition duration-200">Lihat Selengkapnya</a>
+    </div>
+    </div>
+
+ <!-- GUNUNG -->
+    <div class="bg-white rounded-lg overflow-hidden shadow-md flex flex-col justify-between">
+        <img src="img/logo.png" alt="Booking hotel" class="w-full h-48 object-cover transform transition duration-300 hover:scale-110">
+    <div class="p-4 flex-1 flex flex-col justify-center items-center">
+        <h4 class="text-lg font-semibold mb-2">Gunung</h4>
+        <p class="text-gray-600 mb-2">Bali</p>
+        <a href="gunung.html" class="bg-gray-800 text-white py-2 px-4 rounded-lg inline-block hover:bg-gray-700 transition duration-200">Lihat Selengkapnya</a>
+    </div>
+    </div>
+
+ <!-- TARIAN KECAK -->
+    <div class="bg-white rounded-lg overflow-hidden shadow-md flex flex-col justify-between">
+        <img src="img/logo.png" alt="Booking hotel" class="w-full h-48 object-cover transform transition duration-300 hover:scale-110">
+    <div class="p-4 flex-1 flex flex-col justify-center items-center">
+        <h4 class="text-lg font-semibold mb-2">Tarian Kecak</h4>
+        <p class="text-gray-600 mb-2">Bali</p>
+        <a href="tarian.html" class="bg-gray-800 text-white py-2 px-4 rounded-lg inline-block hover:bg-gray-700 transition duration-200">Lihat Selengkapnya</a>
+    </div>
+    </div>
+    </div>
+    </div>
+
+</section>
+
+<section id="wahana">
+    <div class="text-center">
+        <h2 class="text-3xl font-semibold text-gray-800 mb-4">Indonesia – Provinsi</h2>
+    </div>
+<div class="flex items-center justify-center h-screen">
+    <div class="relative flex items-center w-3/4">
+        <!-- Tombol Sebelumnya -->
+        <button id="prevBtn" class="absolute left-0 z-10 p-2 bg-gray-800 text-white rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+        </button>
+
+        
+        <!-- Galeri Foto -->
+        <div id="carousel" class="flex overflow-x-auto scroll-smooth w-full">
+            <div class="flex-shrink-0 w-1/3 p-2">
+                <div class="crop bg-white rounded-lg overflow-hidden shadow-md flex flex-col justify-between transform transition-transform duration-300 hover:-translate-y-2">
+                    <img src="img/logo.png" alt="Image 1">
+                </div>
+                <div class="mt-2 text-center">
+                    <h3 class="text-lg font-semibold">Jet Ski</h3>
+                    <p class="text-gray-600">Benoa - Kuta Selatan</p>
+                    <a href="jetSki.html" class="bg-gray-800 text-white py-2 px-4 rounded-lg inline-block hover:bg-gray-700 transition duration-200">Lihat Selengkapnya</a>
+                </div>                
+            </div>
+            
+            <div class="flex-shrink-0 w-1/3 p-2">
+                <div class="crop bg-white rounded-lg overflow-hidden shadow-md flex flex-col justify-between transform transition-transform duration-300 hover:-translate-y-2">
+                    <img src="img/logo.png" alt="Image 2" >
+                </div>
+                <div class="mt-2 text-center">
+                    <h3 class="text-lg font-semibold">Flyboarding</h3>
+                    <p class="text-gray-600">Benoa - Kuta Selatan</p>
+                    <a href="fly.html" class="bg-gray-800 text-white py-2 px-4 rounded-lg inline-block hover:bg-gray-700 transition duration-200">Lihat Selengkapnya</a>
+                </div>
+                
+            </div>
+            <div class="flex-shrink-0 w-1/3 p-2">
+                <div class="crop bg-white rounded-lg overflow-hidden shadow-md flex flex-col justify-between transform transition-transform duration-300 hover:-translate-y-2">
+                    <img src="img/logo.png" alt="Image 3" >
+                </div>
+                <div class="mt-2 text-center">
+                    <h3 class="text-lg font-semibold"> Parasailing</h3>
+                    <p class="text-gray-600">Benoa - Kuta Selatan</p>
+                    <a href="parasailing.html" class="bg-gray-800 text-white py-2 px-4 rounded-lg inline-block hover:bg-gray-700 transition duration-200">Lihat Selengkapnya</a>
+                </div>                
+            </div>
+            <div class="flex-shrink-0 w-1/3 p-2">
+                <div class="crop bg-white rounded-lg overflow-hidden shadow-md flex flex-col justify-between transform transition-transform duration-300 hover:-translate-y-2">
+                    <img src="img/logo.png" alt="Image 3" >
+                </div>
+                <div class="mt-2 text-center">
+                    <h3 class="text-lg font-semibold"> Banana Boat</h3>
+                    <p class="text-gray-600">Benoa - Kuta Selatan</p>
+                    <a href="banana.html" class="bg-gray-800 text-white py-2 px-4 rounded-lg inline-block hover:bg-gray-700 transition duration-200">Lihat Selengkapnya</a>
+                </div>                
+            </div>
+            <div class="flex-shrink-0 w-1/3 p-2">
+                <div class="crop bg-white rounded-lg overflow-hidden shadow-md flex flex-col justify-between transform transition-transform duration-300 hover:-translate-y-2">
+                    <img src="img/logo.png" alt="Image 1" >
+                </div>
+                <div class="mt-2 text-center">
+                    <h3 class="text-lg font-semibold">Snorkeling</h3>
+                    <p class="text-gray-600">Benoa - Kuta Selatan</p>
+                    <a href="snorkeling.html" class="bg-gray-800 text-white py-2 px-4 rounded-lg inline-block hover:bg-gray-700 transition duration-200">Lihat Selengkapnya</a>
+                </div>
+                
+            </div>
+            <div class="flex-shrink-0 w-1/3 p-2">
+                <div class="crop bg-white rounded-lg overflow-hidden shadow-md flex flex-col justify-between transform transition-transform duration-300 hover:-translate-y-2">
+                    <img src="img/logo.png" alt="Image 1" >
+                </div>
+                <div class="mt-2 text-center">
+                    <h3 class="text-lg font-semibold">Seawalker</h3>
+                    <p class="text-gray-600">Benoa - Kuta Selatan</p>
+                    <a href="seawalker.html" class="bg-gray-800 text-white py-2 px-4 rounded-lg inline-block hover:bg-gray-700 transition duration-200">Lihat Selengkapnya</a>
+                </div>
+                
+            </div>
+            <div class="flex-shrink-0 w-1/3 p-2">
+                <div class="crop bg-white rounded-lg overflow-hidden shadow-md flex flex-col justify-between transform transition-transform duration-300 hover:-translate-y-2">
+                    <img src="img/logo.png" alt="Image 1" >
+                </div>
+                <div class="mt-2 text-center">
+                    <h3 class="text-lg font-semibold">Wakeboarding</h3>
+                    <p class="text-gray-600">Benoa - Kuta Selatan</p>
+                    <a href="wakeboard.html" class="bg-gray-800 text-white py-2 px-4 rounded-lg inline-block hover:bg-gray-700 transition duration-200">Lihat Selengkapnya</a>
+                </div>
+                
+            </div>
+            <div class="flex-shrink-0 w-1/3 p-2">
+                <div class="crop bg-white rounded-lg overflow-hidden shadow-md flex flex-col justify-between transform transition-transform duration-300 hover:-translate-y-2">
+                    <img src="img/logo.png" alt="Image 1" >
+                </div>
+                <div class="mt-2 text-center">
+                    <h3 class="text-lg font-semibold">ATV</h3>
+                    <p class="text-gray-600">Ubud</p>
+                    <a href="atv.html" class="bg-gray-800 text-white py-2 px-4 rounded-lg inline-block hover:bg-gray-700 transition duration-200">Lihat Selengkapnya</a>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Tombol Berikutnya -->
+        <button id="nextBtn" class="absolute right-0 z-10 p-2 bg-gray-800 text-white rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+        </button>
+    </div>
+</div>
+    <!-- JavaScript untuk Fungsi Geser dan Penjelasan -->
+    <script>
+        document.getElementById('nextBtn').addEventListener('click', function() {
+            const carousel = document.getElementById('carousel');
+            carousel.scrollBy({ left: carousel.clientWidth / 3, behavior: 'smooth' });
+        });
+
+        document.getElementById('prevBtn').addEventListener('click', function() {
+            const carousel = document.getElementById('carousel');
+            carousel.scrollBy({ left: -(carousel.clientWidth / 3), behavior: 'smooth' });
+        });  
+    </script>
+</section>
+
+
+
+<section id="penginapan" class="max-w-screen-xxl mx-auto px-6 py-24 text-center" >
+    <h2 class="text-3xl font-semibold text-gray-800 mb-8">Indonesia – Budaya Nusantara</h2>
+    <div class="rounded-xl overflow-hidden bg-gradient-to-br from-gray-200 to-gray-200">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
+           
+ <!-- HOTEL -->
+    <div class="bg-white rounded-lg overflow-hidden shadow-md flex flex-col justify-between">
+        <img src="img/logo.png" alt="Booking hotel" class="w-full h-48 object-cover transform transition duration-300 hover:scale-110">
+    <div class="p-4 flex-1 flex flex-col justify-center items-center">
+        <h4 class="text-lg font-semibold mb-2">Hotel</h4>
+        <p class="text-gray-600 mb-2">Bali</p>
+            <a href="hotel.html" class="bg-gray-800 text-white py-2 px-4 rounded-lg inline-block hover:bg-gray-700 transition duration-200">Lihat Selengkapnya</a>
+    </div>
+    </div>
+
+ <!-- VILLA -->
+    <div class="bg-white rounded-lg overflow-hidden shadow-md flex flex-col justify-between">
+        <img src="img/logo.png" alt="Booking hotel" class="w-full h-48 object-cover transform transition duration-300 hover:scale-110">
+    <div class="p-4 flex-1 flex flex-col justify-center items-center">
+        <h4 class="text-lg font-semibold mb-2">Villa</h4>
+        <p class="text-gray-600 mb-2">Bali</p>
+        <a href="villa.html" class="bg-gray-800 text-white py-2 px-4 rounded-lg inline-block hover:bg-gray-700 transition duration-200">Lihat Selengkapnya</a>
+    </div>
+    </div>
+
+ <!--GUEST HOUSE -->
+    <div class="bg-white rounded-lg overflow-hidden shadow-md flex flex-col justify-between">
+        <img src="img/logo.png" alt="Booking hotel" class="w-full h-48 object-cover transform transition duration-300 hover:scale-110">
+    <div class="p-4 flex-1 flex flex-col justify-center items-center">
+        <h4 class="text-lg font-semibold mb-2">Guest House</h4>
+        <p class="text-gray-600 mb-2">Bali</p>
+        <a href="guestHouse.html" class="bg-gray-800 text-white py-2 px-4 rounded-lg inline-block hover:bg-gray-700 transition duration-200">Lihat Selengkapnya</a>
+    </div>
+    </div>
+
+ 
+    </div>
+    </div>
+
+</section>
+
+  <!-- footer -->
+  <footer class="footer bg-gray-800 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="footer_col">
+                <h3 class="text-2xl font-semibold">Bali Travel</h3>
+                <p class="mt-4 leading-7">
+                    Bali travel adalah istilah yang merujuk pada aktivitas atau industri perjalanan yang berkaitan dengan destinasi wisata Bali. Bali travel mencakup semua aspek yang mempengaruhi pengalaman wisatawan yang berkunjung ke Bali, mulai dari perencanaan perjalanan hingga pelaksanaan aktivitas dan pengalaman selama di sana.
+                </p>
+                <p class="mt-4 leading-7">
+                    Bali memiliki beberapa destinasi wisata terkenal yang sangat menarik untuk dikunjungi, termasuk Garuda Wisnu Kencana (GWK), Tanah Lot, Kelingking Beach di Nusa Penida, pertunjukan Tari Kecak, Tegalalang Rice Terrace, dan Monkey Forest dan masih banyak lagi mencakup baik dalam penginapan maupun wahana yang ada di Bali.
+                </p>
+            </div>
+            <div class="footer_col">
+                <h4 class="text-2xl font-semibold">Information</h4>
+                <div class="flex items-center mt-2">
+                    <a href="https://wa.me/6281943358365?" target="_blank" class="flex items-center">
+                        <img src="../img/whatsapp.png" alt="wa" class="h-6 w-6 mr-2">
+                        <p>whatsapp</p>
+                    </a>
+                </div>
+                
+                <div class="flex items-center mt-2">
+                    <a href="https://www.tiktok.com/@baliwonders._?_t=8ojGLUS3SQn&_r=1" target="_blank" class="flex items-center">
+                        <img src="../img/tiktok.webp" alt="Tiktok" class="h-6 w-6 mr-2">
+                        <p>Tiktok</p>
+                    </a>
+                </div>
+                
+                <div class="flex items-center mt-2">
+                    <a href="https://www.instagram.com/bali_wonders?igsh=MWt0MjNibnQyb2J2Mg%3D%3D&utm_source=qr" target="_blank" class="flex items-center">
+                        <img src="../img/instagram.png" alt="ig" class="h-6 w-6 mr-2">
+                        <p>Instagram</p>
+                    </a>
+                </div>
+                
+            </div>
+            
+            <div class="footer_col">
+                <h4 class="text-2xl font-semibold">Top Kategori</h4>
+                <a href="home.html#destinasi-wisata" class="block bg-gray-800 text-white py-2 px-4 rounded-lg mt-4 hover:bg-gray-700 transition duration-200">Destinasi Wisata</a>
+                <a href="home.html#penginapan" class="block bg-gray-800 text-white py-2 px-4 rounded-lg mt-2 hover:bg-gray-700 transition duration-200">Penginapan</a>
+                <a href="home.html#wahana" class="block bg-gray-800 text-white py-2 px-4 rounded-lg mt-2 hover:bg-gray-700 transition duration-200">Wahana</a>
+            </div>
+        </div>
+        <div class="mt-8 border-t border-gray-600 pt-8 text-center">
+            Copyright @BaliTravel
+        </div>
+    </div>
+</footer>
+<!-- end footer -->
+</body>
+</html>
